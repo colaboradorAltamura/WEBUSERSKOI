@@ -1,0 +1,19 @@
+!.*
+.cache/
+coverage
+dist
+ds/complex/blog/*
+node_modules
+private
+public
+tmp
+web-build/
+web-report/
+build/
+
+vs-core
+out
+.next
+# src/ds/
+
+src/views/components/dynamics/helpers/cleave

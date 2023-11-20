@@ -1,0 +1,83 @@
+<LIST>
+// \*\* React Imports
+import { useEffect } from 'react';
+
+import { useDynamics } from 'src/hooks/useDynamics';
+import { IUser } from 'src/types/users';
+import DynamicSchemaLayoutList from 'src/views/components/dynamics/DynamicSchemaLayoutList';
+
+interface Props {
+user?: IUser;
+}
+
+const PatientsList = ({}: Props) => {
+// \*\* Hooks
+const dynamics = useDynamics();
+
+const onSubmit = (formData: any) =>
+new Promise((resolve, reject) => {
+alert('ON SUBMIT TTTTT');
+
+      console.log(formData);
+      resolve(null);
+    });
+
+return (
+<DynamicSchemaLayoutList
+parentEntitySchema={null}
+parentEntityData={null}
+schemaName={'patients'}
+useCmsRoutes={true}
+customEditRoute={(itemId) => {
+return `/patients/${itemId}`;
+}}
+/>
+);
+};
+
+export default PatientsList;
+
+</LIST>
+
+<EDIT>
+// ** Next Import
+import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from 'next/types';
+
+import DynamicSchemaLayoutEdit from 'src/views/components/dynamics/DynamicSchemaLayoutEdit';
+
+const PatientsEdit = ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
+
+  const id = router.query.id as string;
+
+  if (!id) {
+    console.error('missing args', router);
+    router.push('/500');
+  }
+
+  return <DynamicSchemaLayoutEdit id={id} schemaName={'patients'} panels={null} />;
+};
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
+  return {
+    props: {
+      id: params?.id,
+      // tab: params?.tab,
+    },
+  };
+};
+
+export default PatientsEdit;
+</EDIT>

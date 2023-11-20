@@ -1,0 +1,16 @@
+!.*
+.cache
+coverage
+dist
+lib
+node_modules
+build
+src/assets
+.vscode
+.next
+out
+# src/ds
+
+firebase.json
+
+src/views/components/dynamics/helpers/cleave

@@ -1,0 +1,24 @@
+{
+  "componentsDiscovery": {
+    "include": ["src/**"],
+    "exclude": ["src/_codux/component-templates/**"]
+  },
+  "newComponent": {
+    "componentsPath": "src/_codux/components"
+  },
+  "safeRender": {
+    "maxInstancesPerComponent": 1000
+  },
+  "scripts": {
+    "install": {
+      "title": "Install",
+      "description": "Run install",
+      "command": "npm i",
+      "trigger": ["checkout", "pull", "setup"]
+    }
+  },
+  "styling": {
+    "solution": "css"
+  },
+  "svgLoader": "both"
+}

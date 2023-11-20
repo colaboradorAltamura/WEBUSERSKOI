@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.exclude": {
+      "**/.eslintcache": true,
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true,
+      "**/.git": true, // this is a default value
+      "**/.DS_Store": true, // this is a default value
+      "**/node_modules": true, // this excludes all folders
+      "**/.next": true, // this excludes all folders
+      // "**/.firebase": true, // this excludes all folders
+      "**/out": true // this excludes all folders
+      // "**/node_modules": true // this excludes all folders
+      // named "node_modules" from
+      // the explore tree
+    }
+  }
+}
